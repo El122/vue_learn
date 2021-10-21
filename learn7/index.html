@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue - fifth lesson</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="product">
+            <div class="product-image">
+                <img v-bind:src="image" :alt="altText" />
+            </div>
+
+            <div class="product-info">
+                <h1>{{product}}</h1>
+                <div v-if="isExist">Можно посетить</div>
+                <div v-else="isExist">Разрушена</div>
+                <div v-show="isNaruto">Можно встретить Наруто</div>
+                <p>{{description}}</p>
+                <h2>Можно посетить</h2>
+                <ul>
+                    <li v-for="place of places">{{place}}</li>
+                </ul>
+                <h3>Билеты в корзине: {{tickets}}</h3>
+                <button v-on:click="addToCart">Добавить</button><button v-on:click="deleteFromCart">Удалить</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

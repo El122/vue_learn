@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue - second lesson</title>
+</head>
+<body>
+    <div id="app">
+        <h2>Lesson 1</h2>
+        <p v-if="visible">Меня видно</p>
+        <button v-on:click="visible = !visible">{{ visible ? "Скрыть" : "Показать" }}</button>
+    </div>
+
+    <div id="app2">
+        <template v-if="val == 1">
+            <h2>Lesson 2</h2>
+            <p>Видно 1</p>
+        </template>
+        <template v-else-if="val ==2">
+            <h2>Lesson 3</h2>
+            <p>Видно 2</p>
+        </template>
+        <template v-else>
+            <h2>Lesson 4</h2>
+            <p>Видно 12</p>
+        </template>
+        <select v-model="val">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="12">12</option>
+        </select>
+    </div>
+
+    <div id="app3">
+        <h2>Lesson 5</h2>
+
+        <input type="text" v-model="newElement">
+        <button v-on:click="models.push(newElement)">Добавить</button>
+
+        <ul>
+            <li v-for="(name, index) in models">
+                {{name}}
+                <button v-on:click="models.splice(index, 1)">X</button>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
